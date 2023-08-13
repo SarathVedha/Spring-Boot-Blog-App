@@ -1,0 +1,28 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost/blog
+    username: postgres
+    password: Rockers12$
+#  security:
+#    user:
+#      name: vedha
+#      password: vedha123
+#      roles: ADMIN
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+#    properties:
+#      hibernate:
+#        format_sql: true
+
+app:
+  # Encrypted With SHA-256 value=Vedha
+  jwt-secret: 835ea91edd436d6dcf66372ec58aee187ce07fe0cd080b6f38dc9e94d1de9941
+  # Give Days in MilliSeconds -> Given 7-days=604800000
+  jwt-expiration-day-milliseconds: 604800000
+
+#Generate Logs in logfile
+#logging:
+#  file:
+#    name: blogApp.log

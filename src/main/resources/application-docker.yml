@@ -1,0 +1,26 @@
+# Docker Commands
+# docker network create spring-app -> (bridge to connect db and app)
+# docker run --name postgres-db --network spring-app -p 5432:5432 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=blog -d postgres:latest
+# docker build -t springboot-blog-app:latest .
+# (ports first 8080 is host port : second 9090 is container port)
+# docker run --name spring-blog-curd-app --network spring-app -p 8080:9090 -e DB_URL=jdbc:postgresql://postgres-db/blog -e DB_USER=postgres -e DB_PASSWD=postgres -d springboot-blog-app:latest
+# jdbc:postgresql://postgres-db/blog -> (docker network is bridge, db url is postgres container name -> postgres-db)
+
+spring:
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USER}
+    password: ${DB_PASSWD}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+server:
+  port: 9090
+
+app:
+  # Encrypted With SHA-256 value=Vedha
+  jwt-secret: 835ea91edd436d6dcf66372ec58aee187ce07fe0cd080b6f38dc9e94d1de9941
+  # Give Days in MilliSeconds -> Given 7-days=604800000
+  jwt-expiration-day-milliseconds: 604800000

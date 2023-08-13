@@ -1,0 +1,20 @@
+# AWS Elastic Bean Stalk Deployment
+spring:
+  datasource:
+    # AWS RDS DB EndPoint
+    url: jdbc:postgresql://ap-south-1.rds.amazonaws.com:5432/blog
+    username: postgres
+    password: postgres123
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+server:
+  port: 5000
+
+app:
+  # Encrypted With SHA-256 value=Vedha
+  jwt-secret: 835ea91edd436d6dcf66372ec58aee187ce07fe0cd080b6f38dc9e94d1de9941
+  # Give Days in MilliSeconds -> Given 7-days=604800000
+  jwt-expiration-day-milliseconds: 604800000

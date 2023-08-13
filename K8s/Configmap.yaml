@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: spring-boot-blog-app-config
+  labels:
+    app: spring-boot-blog-app
+  namespace: dev
+data:
+  dbURL: "jdbc:postgresql://postgres-db/blog"

@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  postgres-db:
+    container_name: postgres-db-app
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: blog
+
+  adminer-db:
+    container_name: adminer-db-app
+    ports:
+      - "8080:8080"

@@ -1,0 +1,45 @@
+version: "3.8"
+
+networks:
+  bridge-net:
+    name: springboot-blog-app-net
+
+services:
+  postgres-db:
+    container_name: postgres-db-app
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: blog
+    ports:
+      - "5432:5432"
+    networks:
+      bridge-net:
+
+  adminer-db:
+    container_name: adminer-db-app
+    image: adminer:latest
+    ports:
+      - "9090:8080"
+    links:
+      - postgres-db
+    networks:
+      bridge-net:
+
+  springboot-blog-api-app:
+    container_name: springboot-blog-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:9090"
+    links:
+      - postgres-db
+    environment:
+      DB_URL: jdbc:postgresql://postgres-db/blog
+      DB_USER: postgres
+      DB_PASSWD: postgres
+    networks:
+      bridge-net:
+    restart: on-failure
