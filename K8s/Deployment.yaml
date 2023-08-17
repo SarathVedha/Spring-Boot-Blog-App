@@ -6,7 +6,7 @@ metadata:
     app: spring-boot-blog-app
   namespace: dev
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: spring-boot-blog-app
