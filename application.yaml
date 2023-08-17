@@ -1,0 +1,21 @@
+# nonk8s
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: blog-argo-application
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/SarathVedha/Spring-Boot-Blog-App.git
+    targetRevision: HEAD
+    path: K8s
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: dev
+  syncPolicy:
+    syncOptions: #if NameSpace not exist will create (dev)
+      - CreateNamespace=true
+    automated: #if user tries to modify in kubectl it will redirect to its state
+      selfHeal: true
+      prune: true
