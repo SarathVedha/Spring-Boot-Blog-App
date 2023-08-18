@@ -7,6 +7,7 @@ pipeline {
     }
 
     stages {
+        // CI Development Stages
         stage('Get SourceCode From GitHub') {
             steps {
 
