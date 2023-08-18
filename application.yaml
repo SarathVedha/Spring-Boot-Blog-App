@@ -1,15 +1,18 @@
 # nonk8s
+# ArgoCD Implementation (First Execute in cluster -> kubectl apply -f .\application.yaml)
+# Custom API Version (argoproj.io/v1alpha1) get in argocd docs
+# Kind Application
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: blog-argo-application
+  name: blog-application
   namespace: argocd
 spec:
   project: default
   source:
     repoURL: https://github.com/SarathVedha/Spring-Boot-Blog-App.git
     targetRevision: HEAD
-    path: K8s
+    path: K8s #GitHub Path
   destination:
     server: https://kubernetes.default.svc
     namespace: dev

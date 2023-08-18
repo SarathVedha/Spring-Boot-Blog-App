@@ -62,7 +62,7 @@ public class APIVersioning {
      * Versioning API by Header Level By Adding X-APP-VERSION=1,X-APP-VERSION=2,... In Header
      * Add In Header X-APP-VERSION=1
      */
-    // http://localhost:8080/header
+    // http://localhost:8080/api/versioning/header
     @GetMapping(value = "/header", headers = "X-APP-VERSION=1")
     @Operation(summary = "Header X-APP-VERSION=1", description = "API Header Versioning X-APP-VERSION=1")
     @ApiResponse(responseCode = "200", description = "Http Status 200 Ok")
@@ -71,7 +71,7 @@ public class APIVersioning {
         return ResponseEntity.ok("API Header Versioning v1");
     }
 
-    // http://localhost:8080/header
+    // http://localhost:8080/api/versioning/header
     @GetMapping(value = "/header", headers = "X-APP-VERSION=2")
     @Operation(summary = "Header X-APP-VERSION=2", description = "API Header Versioning X-APP-VERSION=2")
     @ApiResponse(responseCode = "200", description = "Http Status 200 Ok")
