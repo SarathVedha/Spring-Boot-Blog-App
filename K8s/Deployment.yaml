@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: spring-boot-blog-app
-          image: sarathvedha/springboot-blog-app:31
+          image: sarathvedha/springboot-blog-app:32
           imagePullPolicy: IfNotPresent
           env:
             - name: DB_URL
