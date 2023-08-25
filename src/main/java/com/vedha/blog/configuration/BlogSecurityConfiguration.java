@@ -44,6 +44,7 @@ public class BlogSecurityConfiguration {
                         .requestMatchers("/api/auth/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/").permitAll() // For Redirect To Swagger-Ui
                         .requestMatchers("/swagger-ui/**", "/v3/api-docs/**").permitAll() // /swagger-ui/** -> Web UI Page(Internally Uses -> /v3/api-docs/**), /v3/api-docs/** -> Json Format
+                        .requestMatchers("/actuator/**").permitAll()
                         .anyRequest().authenticated());
 
         // Jwt Security Filter

@@ -22,6 +22,16 @@ app:
   # Give Days in MilliSeconds -> Given 7-days=604800000
   jwt-expiration-day-milliseconds: 604800000
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    shutdown:
+      enabled: true
+
+
 #Generate Logs in logfile
 #logging:
 #  file:

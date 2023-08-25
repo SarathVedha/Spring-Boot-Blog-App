@@ -79,4 +79,10 @@ public class APIVersioning {
 
         return ResponseEntity.ok("API Header Versioning v2");
     }
+
+    @GetMapping(value = { "/test"})
+    public ResponseEntity<String> test() {
+
+        return ResponseEntity.ok("Hi Testing");
+    }
 }
