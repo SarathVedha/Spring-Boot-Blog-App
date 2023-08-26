@@ -6,4 +6,4 @@ metadata:
     app: spring-boot-blog-app
   namespace: dev
 data:
-  dbURL: "jdbc:postgresql://blog-app.clt82ewr6499.ap-south-1.rds.amazonaws.com/blog"
+  dbURL: "jdbc:postgresql://postgres-db/blog"
